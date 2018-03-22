@@ -14,8 +14,8 @@ class LRU {
   constructor(limit) {
     this.limit = limit;
     this.map = {};
-    this.head = null; // head
-    this.tail = null; // tail
+    this.head = null;
+    this.tail = null;
   }
 
   lruNode(key, value) {
