@@ -32,7 +32,7 @@ function check(arr) {
   return true;
 }
 
-if (global.describe !== 'function') {
+if (!global.describe) {
   console.log('Please run with Mocha test-runner:');
   console.log('\x1b[33m%s\x1b[0m', `  - mocha ${path.basename(__filename)}`);
   process.exit(1);
