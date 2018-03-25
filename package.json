@@ -1,0 +1,13 @@
+{
+  "name": "daily-coding-problems",
+  "version": "1.0.0",
+  "description": "My scribbles for daily coding problems",
+  "main": "-",
+  "repository": "git@github.com:sjukkola/daily-coding-problems.git",
+  "author": "Samu Jukkola <samujukkola@gmail.com>",
+  "license": "UNLICENSED",
+  "private": false,
+  "devDependencies": {
+    "mocha": "5.0.5"
+  }
+}
