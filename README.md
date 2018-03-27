@@ -85,3 +85,9 @@ Given an array of integers, write a function to determine whether the array coul
 For example, given the array [10, 5, 7], you should return true, since we can modify the 10 into a 1 to make the array non-decreasing.
 
 Given the array [10, 5, 1], you should return false, since we can't modify any one element to get a non-decreasing array.
+
+# ##82
+
+Given a mapping of digits to letters (as in a phone number), and a digit string, return all possible letters the number could represent.
+
+For example if {“2”: [“a”, “b”, “c”], 3: [“d”, “e”, “f”], …} then “23” should return [“ad”, “ae”, “af”, “bd”, “be”, “bf”, “cd”, “ce”, “cf"].
