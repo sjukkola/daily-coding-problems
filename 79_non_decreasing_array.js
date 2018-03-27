@@ -10,7 +10,6 @@ since we can't modify any one element to get a non-decreasing array.
 */
 "use strict"
 const assert = require('assert');
-const path = require('path');
 
 const notFirstOrLast = (i, arr) => i > 0 && i + 2 < arr.length;
 
@@ -33,6 +32,7 @@ function check(arr) {
 }
 
 if (!global.describe) {
+  const path = require('path');
   console.log('Please run with Mocha test-runner:');
   console.log('\x1b[33m%s\x1b[0m', `  - mocha ${path.basename(__filename)}`);
   process.exit(1);
