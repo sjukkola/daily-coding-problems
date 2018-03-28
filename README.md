@@ -86,7 +86,7 @@ For example, given the array [10, 5, 7], you should return true, since we can mo
 
 Given the array [10, 5, 1], you should return false, since we can't modify any one element to get a non-decreasing array.
 
-# ##82
+## #82
 
 Given a mapping of digits to letters (as in a phone number), and a digit string, return all possible letters the number could represent.
 
