@@ -8,6 +8,10 @@
   "license": "UNLICENSED",
   "private": false,
   "devDependencies": {
-    "mocha": "10.2.0"
+    "prettier": "3.6.2",
+    "prettier-plugin-organize-imports": "4.3.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   }
 }
