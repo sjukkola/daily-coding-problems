@@ -17,7 +17,11 @@ export function check(arr: number[]): boolean {
     if (arr[i] > arr[i + 1]) {
       if (timesModified === 1) return false // already modified once
 
-      if (arr[i - 1] > arr[i + 1]) return false
+      if (i == 0 || arr[i - 1] <= arr[i + 1]) {
+        arr[i] = arr[i + 1]
+      } else {
+        arr[i + 1] = arr[i]
+      }
 
       timesModified++
     }
