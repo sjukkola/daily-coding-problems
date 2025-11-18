@@ -24,14 +24,6 @@ npm install
 ### Usage
 
 ```bash
-# Run a specific problem
-node 41_itinerary.js
+# Run test suite
+npm run test
 ```
-
-## Project structure
-
-Each file contains:
-
-- Problem description as a comment
-- Solution implementation
-- Test cases

@@ -52,6 +52,8 @@ The `util/collection-utils.ts` module provides functional reusable helpers:
 5. Add test file in `test/` directory
 6. Check `util/collection-utils.ts` for reusable helpers
 7. Keep solutions self-contained - problem, solution, and tests should be easily understood together
+8. If any incomplete solutions contains `console.log` test cases, remove them and create a unit test for the test
+9. Move any inline test cases to newly created vitest
 
 ## When transforming/converting old solutions
 
