@@ -1,54 +1,33 @@
 /*
-Implement a stack that has the following methods:
+ * Implement a stack that has the following methods:
+ *
+ * - push(val), which pushes an element onto the stack
+ * - pop(), which pops off and returns the topmost element of the stack.
+ * If there are no elements in the stack, then it should throw an error or return null.
+ * - max(), which returns the maximum value in the stack currently.
+ * If there are no elements in the stack, then it should throw an error or return null.
+ */
 
-- push(val), which pushes an element onto the stack
-- pop(), which pops off and returns the topmost element of the stack.
-If there are no elements in the stack, then it should throw an error or return null.
-- max(), which returns the maximum value in the stack currently.
-If there are no elements in the stack, then it should throw an error or return null.
-*/
-"use strict";
+export const createStack = () => {
+  const stack: number[] = []
+  const maxValues: number[] = []
 
-class Stack {
-  constructor() {
-    this.stack = [];
-    this.maxiumValue = [];
+  const push = (value: number): void => {
+    stack.push(value)
+    const currentMax = maxValues.length > 0 ? maxValues[maxValues.length - 1] : value
+    maxValues.push(Math.max(value, currentMax))
   }
 
-  push(value) {
-    this.stack.push(value);
-
-    if (this.maxiumValue.length > 0) {
-      this.maxiumValue.push(Math.max(value, this.maxiumValue[this.maxiumValue.length - 1]));
-    } else {
-      this.maxiumValue.push(value);
-    }
-
+  const pop = (): number | null => {
+    if (stack.length < 1) return null
+    maxValues.pop()
+    return stack.pop() ?? null
   }
 
-  pop() {
-    if (this.stack.length < 1) return null;
-    this.stack.pop();
-    this.maxiumValue.pop();
+  const max = (): number | null => {
+    if (maxValues.length < 1) return null
+    return maxValues[maxValues.length - 1]
   }
 
-  max() {
-    if (this.maxiumValue.length < 1) return null;
-    return this.maxiumValue[this.maxiumValue.length - 1]
-  }
+  return { push, pop, max }
 }
-
-const test = new Stack();
-test.push(1);
-test.push(5);
-test.push(1);
-test.push(27);
-test.push(3);
-test.push(23);
-test.push(1);
-test.pop();
-console.log(test.max());
-test.pop();
-test.pop();
-console.log(test.max());
-
