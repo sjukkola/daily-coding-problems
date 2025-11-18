@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { getItinerary } from '../41_itinerary'
 
 describe('getItinerary', () => {
-  it('returns the correct itinerary for a valid flight path', () => {
+  it('should return correct itinerary for valid flight path', () => {
     const flights: [string, string][] = [
       ['SFO', 'HKO'],
       ['YYZ', 'SFO'],
@@ -12,7 +12,7 @@ describe('getItinerary', () => {
     expect(getItinerary(flights, 'YUL')).toEqual(['YUL', 'YYZ', 'SFO', 'HKO', 'ORD'])
   })
 
-  it('returns null when starting airport has no outgoing flights', () => {
+  it('should return null when starting airport has no outgoing flights', () => {
     const flights: [string, string][] = [
       ['SFO', 'COM'],
       ['COM', 'YYZ'],
@@ -20,8 +20,8 @@ describe('getItinerary', () => {
     expect(getItinerary(flights, 'COM')).toBeNull()
   })
 
-  // TODO: not implemented
-  it.skip('returns the lexicographically smallest itinerary', () => {
+  // TODO: lexicographic check not implemented
+  it.skip('should return lexicographically smallest itinerary', () => {
     const flights: [string, string][] = [
       ['A', 'B'],
       ['A', 'C'],
@@ -31,21 +31,21 @@ describe('getItinerary', () => {
     expect(getItinerary(flights, 'A')).toEqual(['A', 'B', 'C', 'A', 'C'])
   })
 
-  it('returns null for empty flights array', () => {
+  it('should return null for empty flights array', () => {
     expect(getItinerary([], 'JFK')).toBeNull()
   })
 
-  it('returns null for empty start airport', () => {
+  it('should return null for empty start airport', () => {
     const flights: [string, string][] = [['A', 'B']]
     expect(getItinerary(flights, '')).toBeNull()
   })
 
-  it('handles a single flight correctly', () => {
+  it('should handle single flight correctly', () => {
     const flights: [string, string][] = [['NYC', 'LAX']]
     expect(getItinerary(flights, 'NYC')).toEqual(['NYC', 'LAX'])
   })
 
-  it('returns null when path breaks before all flights are used', () => {
+  it('should return null when path breaks before all flights used', () => {
     const flights: [string, string][] = [
       ['A', 'B'],
       ['B', 'C'],
