@@ -1,9 +1,29 @@
-# daily coding problems
-Run with Node (v8.1.3) or Mocha test-runner
+# Daily Coding Problems
 
-`yarn install`
+![TypeScript](https://img.shields.io/badge/TypeScript-5.3.0-blue)
+![Node](https://img.shields.io/badge/Node-%3E%3D22.0.0-green)
 
-[from dailycodingproblem.com mailing list](https://www.dailycodingproblem.com)
+Solutions to coding problems from [dailycodingproblem.com](https://www.dailycodingproblem.com) mailing list.
 
-##
-Each file has the problem description as a comment.
+## Setup
+
+### Prerequisites
+
+| Tool       | Version    |
+| ---------- | ---------- |
+| Node.js    | `>=22.0.0` |
+| npm        | `>=10.0.0` |
+| TypeScript | `5.3.0`    |
+
+### Installation
+
+```bash
+npm install
+```
+
+### Usage
+
+```bash
+# Run test suite
+npm run test
+```
