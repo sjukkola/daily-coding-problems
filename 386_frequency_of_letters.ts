@@ -1,30 +1,17 @@
-"use strict"
-const assert = require('assert');
-
 /*
-Given a string, sort it in decreasing order based on the frequency of characters.
-If there are multiple possible solutions, return any of them.
+ * Given a string, sort it in decreasing order based on the frequency of characters.
+ * If there are multiple possible solutions, return any of them.
+ *
+ * For example, given the string tweet, return tteew. eettw would also be acceptable.
+ */
 
-For example, given the string tweet, return tteew. eettw would also be acceptable.
+export const sortByFrequency = (str: string): string => {
+  const frequencyMap = Array.from(str).reduce<Record<string, number>>((map, letter) => {
+    map[letter] = (map[letter] || 0) + 1
+    return map
+  }, {})
 
-*/
-
-function sortByFrequency (string) {
-  return Object.entries(Array.from(string).reduce((map, letter) => {
-    if (!map[letter])
-      map[letter] = 1;
-    else
-      map[letter]++;
-    return map;
-  }, {}))
-  .sort((a, b) => b[1] - a[1])
-  .reduce((string, n) => string + n[0].repeat(n[1]), '');
+  return Object.entries(frequencyMap)
+    .sort((a, b) => b[1] - a[1])
+    .reduce((result, [char, count]) => result + char.repeat(count), '')
 }
-
-describe('Test', () => {
-  it('Orders by frequency', function () {
-    assert.notEqual(['tteew', 'eettw'].indexOf(sortByFrequency('tweet')), -1);
-    assert.notEqual(['oomacbk'].indexOf(sortByFrequency('macbook')), -1);
-  });
-});
-
