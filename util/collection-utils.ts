@@ -34,3 +34,8 @@ export const groupBy = <T, K, V = T>(
     return grouped
   }, new Map<K, V[]>())
 }
+
+export const fill = (start: number, end: number): readonly number[] =>
+  Array.from({ length: end - start + 1 }, (_, i) => start + i)
+
+export const uniq = <T>(arr: readonly T[]): readonly T[] => [...new Set(arr)]
