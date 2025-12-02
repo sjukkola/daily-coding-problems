@@ -19,32 +19,35 @@
  * return true as the first and third rectangle overlap each other.
  */
 
-import { fill, uniq } from './util/collection-utils'
-
 type Rectangle = {
   readonly topLeft: readonly [number, number]
   readonly dimensions: readonly [number, number]
 }
 
-export function hasOverlap(rectangles: readonly Rectangle[]): boolean {
-  const populated: {
-    x: number[]
-    y: number[]
-  } = {
-    x: [],
-    y: [],
-  }
+type Coordinates = [number, number, number, number]
 
-  for (const rectangle of rectangles) {
-    const x = fill(rectangle.topLeft[0], rectangle.topLeft[0] + rectangle.dimensions[0] - 1)
-    const y = fill(rectangle.topLeft[1], rectangle.topLeft[1] + rectangle.dimensions[1] - 1)
-    populated.x = [...populated.x, ...x]
-    populated.y = [...populated.y, ...y]
-  }
+const convertRectangleToCoordinates = (r: Rectangle): Coordinates => {
+  const [x, y] = r.topLeft
+  const [width, height] = r.dimensions
+  return [x, y, x + width, y + height]
+}
 
-  if (populated.x.length !== uniq(populated.x).length || populated.y.length !== uniq(populated.y).length) {
-    return true
-  }
+const doRectanglesOverlap = (r1: Coordinates, r2: Coordinates): boolean => {
+  const [r1Left, r1Top, r1Right, r1Bottom] = r1
+  const [r2Left, r2Top, r2Right, r2Bottom] = r2
 
+  return !(r2Left >= r1Right || r2Right <= r1Left || r2Top >= r1Bottom || r2Bottom <= r1Top)
+}
+
+export const hasOverlap = (rectangles: readonly Rectangle[]): boolean => {
+  for (let i = 0; i < rectangles.length; i++) {
+    for (let j = i + 1; j < rectangles.length; j++) {
+      if (
+        doRectanglesOverlap(convertRectangleToCoordinates(rectangles[i]), convertRectangleToCoordinates(rectangles[j]))
+      ) {
+        return true
+      }
+    }
+  }
   return false
 }
